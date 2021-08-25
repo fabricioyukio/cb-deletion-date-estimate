@@ -38,6 +38,25 @@ describe CbDeletionDateEstimate do
       due_date = (Date.new(undue_date.year,undue_date.month).prev_month) - 366
       expect(CbDeletionDateEstimate.is_due?(retention_plan,due_date)).to be true
     end
+
+    it 'calculates properly for PLATINUM Retention Plan' do
+      undue_date = (Date.today) -1
+      due_date = (Date.new(((undue_date.year) -1), (undue_date.month))) - 43
+      retention_plan = 'PLATINUM'
+
+      expect(CbDeletionDateEstimate.is_due?(retention_plan,due_date)).to be true
+      
+      expect(CbDeletionDateEstimate.is_due?(retention_plan,undue_date)).to be false
+
+      due_date = (Date.new(undue_date.year,undue_date.month).prev_month) -1
+      expect(CbDeletionDateEstimate.is_due?(retention_plan,due_date)).to be false
+
+      due_date = (Date.new(((undue_date.year)-5),1,1))-1
+      expect(CbDeletionDateEstimate.is_due?(retention_plan,due_date)).to be false
+
+      due_date = (Date.new(((undue_date.year)-7),1,1))-1
+      expect(CbDeletionDateEstimate.is_due?(retention_plan,due_date)).to be true
+    end
 end
   
 end

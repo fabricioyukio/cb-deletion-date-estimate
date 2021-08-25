@@ -16,7 +16,6 @@ class CbDeletionDateEstimate
     due_date = created_at + 42
     
     if ['GOLD','PLATINUM'].include?(retention_plan) then
-      puts "GOLD OR PLATINUM"
       due_date = due_date.next_year if self.last_of_the_month(created_at)
     end
 
@@ -30,8 +29,6 @@ class CbDeletionDateEstimate
     end
 
     today = Date.today
-    puts "today: #{today}"
-    puts "due_date: #{due_date}"
     
     (due_date < today)
   end
@@ -39,8 +36,6 @@ class CbDeletionDateEstimate
   def self.last_of_the_month(dt)
     dt_ = dt +1
     # does month change by adding 1 day?
-    puts 'IS LAST_OF_THE_MONTH' if dt.month != dt_.month
-    puts 'IS NOT LAST_OF_THE_MONTH' if dt.month == dt_.month
     return dt.month != dt_.month
   end
 
