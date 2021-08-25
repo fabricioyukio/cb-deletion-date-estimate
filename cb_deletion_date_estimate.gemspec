@@ -6,6 +6,6 @@ Gem::Specification.new do |s|
   s.authors     = ["Fabricio Yukio T Muñoz"]
   s.email       = 'fabricioyukio@codebits.io'
   s.files       = ["lib/estimate.rb"]
-  s.homepage    = 'codebits.io'
+  s.homepage    = ''
   s.license       = 'GNU'
 end

@@ -4,8 +4,9 @@ class CbDeletionDateEstimate
   def self.is_due?(retention_plan, created_at)
     due_date = created_at + 42
     
-    if ['GOLD','PLATINUM']include? retention_plan
-      due_date = due_date + x
+    if ['GOLD','PLATINUM'].include?(retention_plan) then
+      due_date.year = due_date.year + 1
+    end
 
 
   end
