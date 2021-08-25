@@ -7,8 +7,8 @@ Just add the gem to your project and the following method:
 ```
 CbDeletionDateEstimate.is_due?(retention_plan,created_at)
 ```
-* **retention_plan** id the client's retention_plan (one of Standard, Gold, or Platinum)
-* **created_at** is a 
+* **retention_plan** (String) the client's retention_plan (one of Standard, Gold, or Platinum)
+* **created_at** (Date) is the date of the creation of the snapshot.
 
 ## The Rules
 
@@ -31,4 +31,6 @@ The plans and rules are the following:
 
 ## Other Premises
 
-Every day an 
+### Daily Backup
+Every day an snapshot is created and stored.
+Also every day the stored snapshots are tested to check if such snapshot is due to deletion, according to Owner's Retention Plan.
